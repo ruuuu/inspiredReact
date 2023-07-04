@@ -44,5 +44,5 @@ export const Top = () => (
                 </div>
             </Container>
       </div>
-)
+);
       

@@ -1,10 +1,10 @@
 import cn from 'classnames';  
 import { Container } from '../Layout/Container/Container.jsx';
 import style from './Footer.module.scss';   // style={}
-//import logo from '../../../assets/logo.svg';
 
 
-// компонент
+
+// компонент, возвращает верстку
 export const Footer = () => ( 
       <footer>  
             <Container>  
@@ -90,5 +90,5 @@ export const Footer = () => (
             </Container>
       </footer>
       
-)
+);
       
