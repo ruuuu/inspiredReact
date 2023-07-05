@@ -1,6 +1,30 @@
 import cn from 'classnames';  
 import { Container } from '../Layout/Container/Container.jsx';
 import style from './Footer.module.scss';   // style={}
+import { NavLink } from 'react-router-dom';
+
+
+const list = [ 
+      {link: 'women', title: 'Женщины', categories: [
+            {link: 'bras', title: 'Бюстгальтеры'},
+            {link: 'panties', title: 'Трусы'},
+            {link: 'socks', title: 'Носки'},
+            {link: 'bathsrobes', title: 'Халаты'},
+            {link: 'thermal', title: 'Термобелье'},
+            {link: 'pijamas', title: 'Пижамы'},
+         ],  
+      },
+
+      {link: 'men', title: 'Мужчины', categories: [
+            {link: 'panties', title: 'Трусы'},
+            {link: 'socks', title: 'Носки'},
+            {link: 'bathsrobes', title: 'Халаты'},
+            {link: 'thermal', title: 'Термобелье'},
+           ],
+      }
+];
+
+
 
 
 
@@ -10,51 +34,24 @@ export const Footer = () => (
             <Container>  
                   <div className={style.container}>
                         <div className={style.category}>
-                              <h2 className={style.categoryTitle}>Каталог</h2>
+                              <h2 className={cn(style.title, style.categoryTitle)}>Каталог</h2>
                               <ul className={style.categoryList}>
-                                    <li>
-                                          <h3 className={style.categorySubtitle}>Женское</h3>
-                                          <ul className={style.categorySublist}>
-                                                <li>
-                                                      <a className={style.link}>Бюстгальтеры</a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Трусы</a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Носки </a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Халаты</a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Термобелье</a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Пижамы</a>
-                                                </li>
-                                          </ul>
-                                    </li>
-                                    <li>
-                                          <h3 className={style.categorySubtitle}>Мужское</h3>
-                                          <ul className={style.categorySublist}>
-                                                <li>
-                                                      <a className={style.link}>Трусы</a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Носки </a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Халаты</a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Термобелье</a>
-                                                </li>
-                                                <li>
-                                                      <a className={style.link}>Пижамы</a>
-                                                </li>
-                                          </ul>
-                                    </li>
+                                    { list.map((item) => (
+                                          <li key={item.link}>
+                                                <h3 className={style.categorySubtitle}>
+                                                      <NavLink className={style.link} to={item.link}> {item.title} </NavLink>
+                                                </h3>
+                                               
+                                                <ul className={style.categorySublist}>
+                                                      { item.categories.map((categoryItem) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
+                                                            <li key={categoryItem.link}>
+                                                                  <NavLink className={style.link} to={`${item.link}/${categoryItem.link}`}> {categoryItem.title} </NavLink>
+                                                            </li>
+                                                         )
+                                                      )}    
+                                                </ul>
+                                          </li>
+                                    )) }   
                               </ul>
                         </div>
 

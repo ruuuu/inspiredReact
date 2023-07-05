@@ -13,12 +13,12 @@ const list = [
 // компонент, js код оборачиваем в {}
 export const Gender = () => (                                     // возвращает верстку
       <ul className={style.gender}>
-          {list.map((item) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -строенный компнент в react-dom
+          { list.map((item) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
                   <li className={style.item} key={item.link}>             
-                        <NavLink className={style.link} to={item.link}> {item.title} </NavLink>  
+                        <NavLink className={({ isActive }) => cn(style.link, isActive && style.linkActive)} to={item.link}> {item.title} </NavLink>   
                   </li>
                )
-           )}
+           ) }
       </ul>
 );
 
