@@ -20,7 +20,7 @@ const list = [
             {link: 'socks', title: 'Носки'},
             {link: 'bathsrobes', title: 'Халаты'},
             {link: 'thermal', title: 'Термобелье'},
-           ],
+         ],
       }
 ];
 
