@@ -32,8 +32,6 @@ export const App = () => <RouterProvider router={router}></RouterProvider>
 //            <Header />
 //            <Footer />
 //       </>
-//      )
-      
-     
+//      ) 
 // };
 

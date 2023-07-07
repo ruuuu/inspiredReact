@@ -23,12 +23,16 @@ export const Category = ({ list }) => {
       const location = useLocation();                                   // useLocation - хук встронный в react-router-dom             
       const gender = location.pathname.split('/')[1] || 'women';        // men/women
       //console.log('gender ', gender);            
+      const categoriesList = list.find((item) => {                      // вернет массив 
+            return item.link === gender;
+      });
 
+      
 
       return (
 
             <ul className={style.category}>
-                { list[0].map((item) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
+                { categoriesList.categories.map((item) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
                         <li key={item.link}>             
                               <NavLink className={({ isActive }) => cn(style.link, isActive && style.linkActive)} to={`${gender}/${item.link}`}> {item.title} </NavLink>   
                         </li>
