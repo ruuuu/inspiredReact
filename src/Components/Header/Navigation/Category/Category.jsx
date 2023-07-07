@@ -4,22 +4,10 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 
 
-
-// const list = [
-//       {link: 'bras', title: 'Бюстгальтеры'},
-//       {link: 'panties', title: 'Трусы'},
-//       {link: 'socks', title: 'Носки'},
-//       {link: 'bathsrobes', title: 'Халаты'},
-//       {link: 'thermal', title: 'Термобелье'},
-//       {link: 'pijamas', title: 'Пижамы'}
-// ];
-
-
-
 //  атрибуты className, to это props-ы
 // компонент
 export const Category = ({ list }) => {
-      console.log('list in Category  ', list )
+      console.log('list in Category  ', list );
       const location = useLocation();                                   // useLocation - хук встронный в react-router-dom             
       const gender = location.pathname.split('/')[1] || 'women';        // men/women
       //console.log('gender ', gender);            
