@@ -17,7 +17,7 @@ export const Category = () => {
 
       return (
             <ul className={style.category}>
-                {categories[activeGender]?.list.map((item) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
+                { categories[activeGender]?.list.map((item) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
                         <li key={item.slug}>             
                               <NavLink className={({ isActive }) => cn(style.link, isActive && style.linkActive)} to={`${activeGender}/${item.slug}`}> {item.title} </NavLink>   
                         </li>

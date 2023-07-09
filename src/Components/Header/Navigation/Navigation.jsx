@@ -9,21 +9,20 @@ import { setActiveGender } from '../../../features/navigationSlice.js';
 
 
 // компонент
-export const Navigation = ({list}) => {
+export const Navigation = ({ list }) => {
 
       const dispatch = useDispatch();                       // useDispatch - хук, вернет функцию
       const location = useLocation();                     
       const gender = location.pathname.split('/')[1] || 'women';
-      console.log('gender ', gender);
+    
 
       // useEffect-хук котрый вызывается чтобы выполнить действие связанное со сторонними апи. Также хук используется  если надо вызвать переданную функцю в зависсимости от значения какого-то свойства(activeGender)
       useEffect(() => { 
             dispatch(setActiveGender(gender));  
-      }, [gender, dispatch]);           // если  location.pathname(men/socks) изменится, то вызвоввется  useEffect()           
+      }, [gender, dispatch]);          // если  location.pathname(men/socks) изменится, то вызвоввется  useEffect()           
       
 
-      return 
-            (
+      return (
                   <nav>
                         <Container>
                               <Gender list={list} />  
@@ -31,7 +30,7 @@ export const Navigation = ({list}) => {
                         </Container>
                   </nav>
             )
-}
+};
 
     
 

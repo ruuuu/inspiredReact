@@ -34,10 +34,10 @@ export const Root = () => (
             </Main>
             <Footer list={list} />
       </>
-)
+);
 
 
 // передаем list в Header/Footer в виде props-а(объект)
 
 // билиотека react-redux контролирует state
-// поставили билиотеку @reduxjs/toolkit
+

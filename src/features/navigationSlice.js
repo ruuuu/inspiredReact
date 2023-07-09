@@ -3,7 +3,7 @@ import { CATEGORY_URL } from '../const.js';
 
 
 
-export const fetchNavigation = createAsyncThunk(
+export const fetchNavigation = createAsyncThunk(            // для запроса на сервер
       "navigation/fetchNavigation",  //имя задали
       async () => {
             const response = await fetch(CATEGORY_URL);
@@ -21,9 +21,9 @@ const navigationSlice = createSlice({           // возвращает объе
             status: '',                         // статус запроса на сервер
             categories: {},                      // нач значени
             genderList: [],                      // нач значени
-            error: null
+            error: null,
       },
-      reduсers: {
+      reducers: {
             setActiveGender: (state, action) => {           // setActiveGender - функция(action)
                   state.activeGender = action.payload;
             }
@@ -38,7 +38,7 @@ const navigationSlice = createSlice({           // возвращает объе
                         state.categories = action.payload;                    // получим ответ от сервера запиештимся в categories
                         state.genderList = Object.keys(action.payload);       // ['men', 'women']
                   })  
-                  .addCase(fetchNavigation.rejected, (state) => { 
+                  .addCase(fetchNavigation.rejected, (state) => {
                         state.status = 'failed',
                         state.error = action.error.message;
                   })

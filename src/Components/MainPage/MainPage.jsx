@@ -11,7 +11,7 @@ export const MainPage = ({ gender = 'women' }) => {                     // по 
       return (
             <Container>
                   <div>MainPage {gender}</div>
-                  { category && <p>Категория: { category }</p> }  
+                  { category && <p> Категория: { category } </p> }  
             </Container>
       )
 

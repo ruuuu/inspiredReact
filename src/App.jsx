@@ -20,6 +20,8 @@ const router = createBrowserRouter(
                <Route  path='women/:category' element={<MainPage gender='women' />} />
                <Route  path='men/:category' element={<MainPage gender='men' />} />
                <Route  path='*' element={<ErrorPage />} />
+               <Route  path='kids' element={<MainPage gender='kids' />} />
+               <Route  path='kids/:category' element={<MainPage gender='kids' />} />
           </Route>
      )
 );
@@ -33,7 +35,7 @@ export const App = () => {
      }, [dispatch]);
 
 
-     return  <RouterProvider router={router}></RouterProvider>;
+     return <RouterProvider router={router}></RouterProvider>;
 
 }; 
 

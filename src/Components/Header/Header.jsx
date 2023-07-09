@@ -7,7 +7,7 @@ export const Header = ({ list }) => (    // с помщью деструткри
       
       <header>
             <Top />
-            <Navigation list={list}/>  
+            <Navigation list={list} />  
       </header>
       
 );
