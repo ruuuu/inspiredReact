@@ -8,6 +8,8 @@ import { NavLink } from 'react-router-dom';
 
 // компонент, возвращает верстку
 export const Footer = ({ list }) => ( 
+
+      //  const gender = useSelector(state => state.navigation.activeGender); 
       <footer>  
             <Container>  
                   <div className={style.container}>

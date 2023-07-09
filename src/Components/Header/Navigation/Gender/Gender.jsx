@@ -1,6 +1,7 @@
 import cn from 'classnames';  
 import style from './Gender.module.scss';   // style={}
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 // const list = [
@@ -11,17 +12,19 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 
 // компонент, js код оборачиваем в {}
-export const Gender = ({ list }) => {
+export const Gender = () => {
+      const { activeGender, genderList, categories } = useSelector(state => state.navigation)  // доcтаем из initialState, для этого исползуем useSelector
 
-      const location = useLocation();                       // useLocation - хук встронный в react-router-dom
-      //console.log('location ', location);                  
-      const gender = location.pathname.split('/')[1] || 'women';            // split() в строке ищет '/', получаем  массив строк ['', 'men', 'bathrobes']
+
+      // const location = useLocation();                       // useLocation - хук встронный в react-router-dom
+      // //console.log('location ', location);                  
+      // const gender = location.pathname.split('/')[1] || 'women';            // split() в строке ищет '/', получаем  массив строк ['', 'men', 'bathrobes']
 
       return (                                     // возвращает верстку
                   <ul className={style.gender}>
-                        { list.map((item) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
-                                    <li className={style.item} key={item.link}>             
-                                          <NavLink className={ ({ isActive }) => cn(style.link, (isActive || gender === item.link) && style.linkActive) } to={item.link}> {item.title} </NavLink>   
+                        { list.map((gender) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
+                                    <li className={style.item} key={gender}>             
+                                          <NavLink className={ ({ isActive }) => cn(style.link, (isActive || gender === activeGender) && style.linkActive) } to={gender}> {categories[gender].title} </NavLink>   
                                     </li>
                               )
                         ) }

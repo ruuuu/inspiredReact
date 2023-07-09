@@ -6,7 +6,7 @@ import { rootReducer } from './rootReducer.js';
 const store = configureStore({  
       reducer: rootReducer,
       devTools: import.meta.env.DEV,  // встроенный middleware нужен для разработки, свойство DEV встроенно в Vite
-});
+})
 
 
 
