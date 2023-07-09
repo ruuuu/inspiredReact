@@ -21,6 +21,11 @@ const list = [
             {link: 'bathsrobes', title: 'Халаты'},
             {link: 'thermal', title: 'Термобелье'},
          ],
+      },
+      {link: 'kids', title: 'Детские', categories: [
+            {link: 'girlss', title: 'Девочки'},
+            {link: 'boys', title: 'Мальчики'},
+         ],
       }
 ];
 
