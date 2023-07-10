@@ -18,7 +18,7 @@ export const colorSlice = createSlice({           // возвращает объ
       name: 'color',                       // задаем названеи редьсюеру
       initialState:  {                          // инициализируем state
             status: '',                         // статус запроса на сервер
-            colorList: [],                      // нач значени, результат сервера сюда запишем
+            colorList: [],                      // нач значени, ответ от  сервера сюда запишем
             error: null,
       },
       extraReducers: (builder) => {
@@ -40,6 +40,6 @@ export const colorSlice = createSlice({           // возвращает объ
 
 
 
-export const { setActiveGender } = navigationSlice.actions;
+export const { setActiveGender } = colorSlice.actions;
 
-export default navigationSlice.reducer;
+export default colorSlice.reducer;

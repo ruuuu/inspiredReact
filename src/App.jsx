@@ -7,6 +7,8 @@ import { ErrorPage } from "./Components/ErrorPage/ErrrorPage.jsx";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchNavigation } from "./features/navigationSlice.js";
+import { fetchColors } from "./features/colorSlice.js";
+
 
 
 // при переходе path='/' отобразится компонент  MainPage, gender='men' это props:
@@ -31,7 +33,8 @@ export const App = () => {
      const dispatch = useDispatch();
 
      useEffect(() => {
-          dispatch(fetchNavigation());  // отправка запрос на сервет
+          dispatch(fetchNavigation());  // отправка запрос на сервер(полуенеи категорий)
+          dispatch(fetchColors());  // отправка запрос на сервер(полуение цветв)
      }, [dispatch]);
 
 
