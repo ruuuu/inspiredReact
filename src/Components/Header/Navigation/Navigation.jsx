@@ -8,8 +8,8 @@ import { setActiveGender } from '../../../features/navigationSlice.js';
 
 
 
-// компонент
-export const Navigation = ({ list }) => {
+// компонент            { list }
+export const Navigation = () => {
 
       const dispatch = useDispatch();                       // useDispatch - хук, вернет функцию
       const location = useLocation();                     
@@ -25,8 +25,8 @@ export const Navigation = ({ list }) => {
       return (
                   <nav>
                         <Container>
-                              <Gender list={list} />  
-                              <Category list={list} />
+                              <Gender />  
+                              <Category />
                         </Container>
                   </nav>
             )

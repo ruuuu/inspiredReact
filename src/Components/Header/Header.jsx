@@ -3,11 +3,12 @@ import { Navigation } from "./Navigation/Navigation.jsx";
 
 
 // компонент, возвращатет верстку
-export const Header = ({ list }) => (    // с помщью деструткризации достаем объект list
+//                  {list} 
+export const Header = () => (    // с помщью деструткризации достаем объект list
       
       <header>
             <Top />
-            <Navigation list={list} />  
+            <Navigation  />  
       </header>
       
 );

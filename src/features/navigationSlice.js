@@ -4,7 +4,7 @@ import { CATEGORY_URL } from '../const.js';
 
 
 export const fetchNavigation = createAsyncThunk(            // для запроса на сервер
-      "navigation/fetchNavigation",  //имя задали
+      "navigation/fetchNavigation",  //имя задали, имя здолжно быть таким же что и  navigationSlice.name, fetchNavigation-имя редьюсера
       async () => {
             const response = await fetch(CATEGORY_URL);
             const data = await response.json();
@@ -34,12 +34,12 @@ const navigationSlice = createSlice({           // возвращает объе
                         state.status = 'loading';
                   })  
                   .addCase(fetchNavigation.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchNavigation
-                        state.status = 'success';
-                        state.categories = action.payload;                    // получим ответ от сервера запиештимся в categories
+                        state.status = 'success';                             // ответо сервера успешно получен
+                        state.categories = action.payload;                    // в action.payload приходит ответ от сервера запиештимся в categories
                         state.genderList = Object.keys(action.payload);       // ['men', 'women']
                   })  
                   .addCase(fetchNavigation.rejected, (state) => {
-                        state.status = 'failed',
+                        state.status = 'failed',                              // от сервера не получили ответ
                         state.error = action.error.message;
                   })
       }                  
