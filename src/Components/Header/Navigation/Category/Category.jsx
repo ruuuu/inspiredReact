@@ -12,7 +12,8 @@ export const Category = () => {
       // const gender = location.pathname.split("/")[1] || "women";        // men/women
       //console.log('gender ', gender);            
       
-      const { activeGender, categories } = useSelector(state => state.navigation);  
+      // получаем categories и activeGender:
+      const { activeGender, categories } = useSelector(state => state.navigation);   // state.navigation вернет объект, из него получим свйосва activeGender, categories с помщью деструтуриазации 
      
 
       return (

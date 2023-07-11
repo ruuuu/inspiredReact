@@ -14,7 +14,7 @@ export const fetchColors = createAsyncThunk(            // для запроса
 
 
 // создаем редьюсер
-export const colorSlice = createSlice({           // возвращает объект, у него есть свойство reducer и actions   
+const colorSlice = createSlice({           // возвращает объект, у него есть свойство reducer и actions   
       name: 'color',                       // задаем названеи редьсюеру
       initialState:  {                          // инициализируем state
             status: '',                         // статус запроса на сервер
@@ -40,6 +40,6 @@ export const colorSlice = createSlice({           // возвращает объ
 
 
 
-export const { setActiveGender } = colorSlice.actions;
+export const { colorList } = colorSlice.actions;
 
 export default colorSlice.reducer;

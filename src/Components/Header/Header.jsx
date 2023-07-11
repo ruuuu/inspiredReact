@@ -1,14 +1,14 @@
 import { Top } from "./Top/Top.jsx";
-import { Navigation } from "./Navigation/Navigation.jsx";
-
+import { Navigation } from "./Navigation.jsx";
+import style from './Header.module.scss';   // style={}
 
 // компонент, возвращатет верстку
 //                  {list} 
 export const Header = () => (    // с помщью деструткризации достаем объект list
       
-      <header>
+      <header className={style.header}>
             <Top />
-            <Navigation  />  
+            <Navigation />  
       </header>
       
 );

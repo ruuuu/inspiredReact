@@ -7,7 +7,7 @@ export const fetchNavigation = createAsyncThunk(            // для запро
       "navigation/fetchNavigation",  //имя задали, имя здолжно быть таким же что и  navigationSlice.name, fetchNavigation-имя редьюсера
       async () => {
             const response = await fetch(CATEGORY_URL);
-            const data = await response.json();
+            const data = await response.json();  // асинхронный метод response.json();
             return data;  
       }
 )
@@ -19,8 +19,8 @@ const navigationSlice = createSlice({           // возвращает объе
       initialState:  {                          // инициализируем state
             activeGender: 'women',              //  в любом компоненте можно обратиться к свойству activeGender
             status: '',                         // статус запроса на сервер
-            categories: {},                      // нач значени
-            genderList: [],                      // нач значени
+            categories: {},                      // нач значени(получим от сервера и сюда запишем)
+            genderList: [],                      // нач значени(получим от сервера и сюда запишем)
             error: null,
       },
       reducers: {

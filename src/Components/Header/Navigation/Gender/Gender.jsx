@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 
 // компонент, js код оборачиваем в {}
 export const Gender = () => {
-      const { activeGender, genderList, categories } = useSelector(state => state.navigation)  // доcтаем из initialState, для этого исползуем useSelector
+      const { activeGender, genderList, categories } = useSelector(state => state.navigation)  //state.navigation вернет объект, из него изклекаем свойства activeGender, genderList, categories.  Доcтаем из initialState, для этого исползуем useSelector
 
 
       // const location = useLocation();                       // useLocation - хук встронный в react-router-dom
