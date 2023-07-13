@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchNavigation } from "./features/navigationSlice.js";
 import { fetchColors } from "./features/colorSlice.js";
+import { fetchGoods } from "./features/goodsSlice.js";
 
 
 
@@ -35,6 +36,7 @@ export const App = () => {
      useEffect(() => {
           dispatch(fetchNavigation());  // отправка запрос на сервер(полуенеи категорий)
           dispatch(fetchColors());  // отправка запрос на сервер(полуение цветв)
+          dispatch(fetchGoods()); 
      }, [dispatch]);
 
 

@@ -40,6 +40,6 @@ const colorSlice = createSlice({           // возвращает объект,
 
 
 
-export const { colorList } = colorSlice.actions;
+
 
 export default colorSlice.reducer;

@@ -4,7 +4,9 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchGoods } from '../../features/goodsSlice.js';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
+import { Product } from '../Product/Product.jsx';
+
 
 
 //  компонент, возвращает верстку
@@ -13,37 +15,33 @@ export const MainPage = ({ gender = 'women' }) => {                     // по 
       const { category } = useParams();   // хук useParams
 
       const dispatch = useDispatch();
-      
-      // получаем goodsList :
-      const { goodsList } = useSelector(state => state.goodsList);
+
+     
+      // получаем goodsList  [{}, {}, {}] с сервера:
+      const { goodsList } = useSelector(state => state.goods);     
 
       useEffect(() => {
             dispatch(fetchGoods(gender))
-      }, [gender, dispatch]);                         // при смене gender, вызовется переданная функция
-
+      }, [gender, dispatch]);                        // при смене gender, вызовется переданная функция
 
 
       return (
             <section className={style.goods}>
                   <Container>
-                        <h2 className={style.title}> </h2>
+                        <h2 className={style.title}>Новинки</h2>
                         <ul className={style.list}>
-                              {goodsList.map((goodItem) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. 
-                                          <Product key={goodItem.id} {...goodItem} />           // <li>, передаем все свойтсва товара путем {...goodItem}
+                              {goodsList.map((goodItem) => (
+                                    <li key={goodItem.id}>
+                                          <Product  {...goodItem} />
+                                    </li>
                                     )
-                              )}  
+                              )}                             
                         </ul>
                   </Container>
-            </section>
-           
-      )
-
-
-      // return (
-      //       <Container>
-      //             <div>MainPage { gender }</div>
-      //             { category && <p> Категория: { category } </p> }  
-      //       </Container>
-      // )
+            </section>    
+      );
 
 };    
+
+
+//   Product это <li>, передаем все свойтсва товара {id, title, category, size, name, description} путем {...goodItem}

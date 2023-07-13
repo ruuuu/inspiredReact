@@ -1,15 +1,16 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { GOODS_URL } from "../const.js";
 
 
 
 
 export const fetchGoods = createAsyncThunk(            // для запроса на сервер
-      "goods/fetchGoods",  //имя здолжно быть таким же что и goodsSlice.name (fetchGoods - имя для  редьюсера)
-      async (gender) => {
+      'goods/fetchGoods',                              //имя здолжно быть таким же что и goodsSlice.name (fetchGoods - имя для  редьюсера)
+       async (gender) => {
+            //console.log('`${GOODS_URL}?gender=${gender}`', `${GOODS_URL}?gender=${gender}`);
+
             const response = await fetch(`${GOODS_URL}?gender=${gender}`);
-            const data = await response.json();
-            return data;  
+            return await response.json(); 
       }
 )
 
@@ -40,6 +41,6 @@ export const goodsSlice = createSlice({           // возвращает объ
 });
 
 
-// export const { setActiveGender } = goodsSlice.actions;
+
 
 export default goodsSlice.reducer;
