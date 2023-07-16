@@ -5,16 +5,17 @@ import { ReactComponent as Like } from '../../assets/heart.svg';  // карти�
 import { ColorList } from '../ColorList/ColorLIst.jsx';
 
 
+// вернет верстку картчоки товара для страницы товара
+
 //                                 props
 export const Product = ({ id, pic, title, price, colors }) => {  // props-   {id, title, category, size, name, description}
       //console.log('props ', props);
 
       return (
             <article className={style.product}>
-                  <NavLink to={`product/${id}`} className={style.link}>
+                  <NavLink to={`/product/${id}`} className={style.link}>
                         <img className={style.image} src={`${API_URL}/${pic}`} />
                         <h3 className={style.title}> {title} </h3>  
-
                   </NavLink>
 
                   <div className={style.row}>
@@ -24,7 +25,7 @@ export const Product = ({ id, pic, title, price, colors }) => {  // props-   {id
                         </button>
                   </div>
 
-                  <ColorList colors={colors} /> 
+                  <ColorList colors={colors} />   {/* ColorList принмиает параметр colors, поэтому добавчлпм props colors */} 
             </article>
       )
        

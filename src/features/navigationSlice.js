@@ -13,18 +13,20 @@ export const fetchNavigation = createAsyncThunk(            // для запро
 )
 
 
+
 // создаем редьюсер
 const navigationSlice = createSlice({           // возвращает объект, у него есть свойство reducer и actions   
       name: 'navigation',                       // задаем названеи редьсюеру
       initialState:  {                          // инициализируем state
             activeGender: 'women',              //  в любом компоненте можно обратиться к свойству activeGender
             status: '',                         // статус запроса на сервер
-            categories: {},                      // нач значени(получим от сервера и сюда запишем)
-            genderList: [],                      // нач значени(получим от сервера и сюда запишем)
+            categories: {},                      // нач значени(получим от сервера и в categories запишем)
+            genderList: [],                      // нач значени(получим от сервера и в genderList запишем)
             error: null,
       },
       reducers: {
             setActiveGender: (state, action) => {           // setActiveGender - функция(action)
+                 // console.log('action.payload in setActiveGender', action.payload)
                   state.activeGender = action.payload;
             }
       },

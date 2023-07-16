@@ -11,8 +11,8 @@ import { useSelector } from 'react-redux';
 export const Footer = () => {
 
       const { genderList, categories } = useSelector(state => state.navigation);  
-      console.log('genderList ', genderList)  // [women, men, kids]
-      console.log('categories ', categories)   // { kids: {title: 'Детское', banner: {…}, list: Array(2)}, men: {title: 'Мужское', banner: {…}, list: Array(4)}, women: {title: 'Женское', banner: {…}, list: Array(6)} }
+      console.log('genderList ', genderList);    // [ women, men, kids ]
+      console.log('categories ', categories);    // { kids: {title: 'Детское', banner: {…}, list: Array(2)}, men: {title: 'Мужское', banner: {…}, list: Array(4)}, women: {title: 'Женское', banner: {…}, list: Array(6)} }
       
 
 
@@ -27,13 +27,13 @@ export const Footer = () => {
                                           { genderList.map((gender) => (
                                                 <li key={gender}>
                                                       <h3 className={style.categorySubtitle}>
-                                                            <NavLink className={style.link} to={gender}> {categories[gender].title} </NavLink>
+                                                            <NavLink className={style.link} to={`/catalog/${gender}`}> {categories[gender].title} </NavLink>
                                                       </h3>
                                                      
                                                       <ul className={style.categorySublist}>
                                                             { categories[gender].list.map((categoryItem) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
                                                                   <li key={categoryItem.slug}>
-                                                                        <NavLink className={style.link} to={`${gender}/${categoryItem.slug}`}> {categoryItem.title} </NavLink>
+                                                                        <NavLink className={style.link} to={`/catalog/${gender}/${categoryItem.slug}`}> {categoryItem.title} </NavLink>  
                                                                   </li>
                                                                )
                                                             )}    

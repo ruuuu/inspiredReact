@@ -18,7 +18,7 @@ const colorSlice = createSlice({           // возвращает объект,
       name: 'color',                       // задаем названеи редьсюеру
       initialState:  {                          // инициализируем state
             status: '',                         // статус запроса на сервер
-            colorList: [],                      // нач значени, ответ от  сервера сюда запишем
+            colorList: [],                      // нач значени, ответ от  сервера  запишем в пеерменную colorList
             error: null,
       },
       extraReducers: (builder) => {

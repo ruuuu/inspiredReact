@@ -5,8 +5,10 @@ import { Color } from './Color/Color.jsx';
 
 
 
+
 //компонент
-export const ColorList = ({ colors }) => { // colors - массив цветов
+export const ColorList = ({ colors }) => {                                    // colors - массив цветов
+
 
       const { colorList } = useSelector(state => state.color);                // ответ от сервера  [ {code: , id: , title: }, {} ]  запишем в colorList
       
@@ -14,7 +16,8 @@ export const ColorList = ({ colors }) => { // colors - массив цветов
             <ul className={style.color}>
                  {colors.map((id, i) => {             // colors = [ {code: , id: , title: }, {} ]
                         const color = colorList.find(color => color.id === id);                             // вернет {code: , id: , title: }
-                        return <Color key={id} color={color?.code} check={!i} />                             // возвращаем компонент Color(<li>), props = {color, check}.   color?.code - проверяем есть ли свойстов code у color 
+                        return <Color  key={id} color={color?.code} check={!i} />             // возвращаем компонент Color(<li>), props = {color, check}.   color?.code - проверяем есть ли свойстов code у объекта  color .
+                            // Color примниет {color, check}, поэтому перелаем их как props-ы color и check
                  })}
             </ul>
       )

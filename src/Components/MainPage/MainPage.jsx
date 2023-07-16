@@ -1,47 +1,53 @@
-import style from './MainPage.module.scss';  
-import { Container } from '../Layout/Container/Container.jsx';
+import { Goods } from '../Goods/Goods.jsx'
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchGoods } from '../../features/goodsSlice.js';
-import { useSelector } from 'react-redux';
-import { Product } from '../Product/Product.jsx';
+import { fetchGender, fetchCategory  } from '../../features/goodsSlice.js';
+import { Banner } from '../Banner/Banner.jsx';
 
 
 
-//  компонент, возвращает верстку
-export const MainPage = ({ gender = 'women' }) => {                     // по умолчнию  gender = 'women'
+import { setActiveGender } from '../../features/navigationSlice.js';
+
+
+//  компонент, возвращает верстку 
+//                { gender = 'women' }                      // по умолчнию  gender = 'women'
+export const MainPage = () => {                     
       
-      const { category } = useParams();   // хук useParams
+      const { category, gender } = useParams();   // хук useParams, вернет объект , его детсрутуририруем { category, gender }, category - так названо поле на сервере
 
       const dispatch = useDispatch();
 
      
-      // получаем goodsList  [{}, {}, {}] с сервера:
-      const { goodsList } = useSelector(state => state.goods);     
+    
+      useEffect(() => {
+            dispatch(setActiveGender(gender));
+      }, [gender, dispatch]);                         // при смене gender, вызовется переданная функция
+
 
       useEffect(() => {
-            dispatch(fetchGoods(gender))
-      }, [gender, dispatch]);                        // при смене gender, вызовется переданная функция
+            if(gender && category){                   // category так  названо поле на сервере
+                  dispatch(fetchCategory({ gender, category }));              // отправится язапрос на сервер
+                  return;                                                     // далее код не выполнится
+            }
+            if(gender){
+                  dispatch(fetchGender(gender));                  // отправится язапрос на сервер
+                  return;
+            }
+           
+      }, [gender, category, dispatch]);                        // при смене gender, category , вызовется переданная функция
+
 
 
       return (
-            <section className={style.goods}>
-                  <Container>
-                        <h2 className={style.title}>Новинки</h2>
-                        <ul className={style.list}>
-                              {goodsList.map((goodItem) => (
-                                    <li key={goodItem.id}>
-                                          <Product  {...goodItem} />
-                                    </li>
-                                    )
-                              )}                             
-                        </ul>
-                  </Container>
-            </section>    
+            <>
+                  <div>
+                        <Banner />
+                  </div>
+                  <Goods category={category} />               {/* Goods принмиает параметр category, поэтому добавчлпм props category */} 
+            </> 
       );
 
 };    
 
 
-//   Product это <li>, передаем все свойтсва товара {id, title, category, size, name, description} путем {...goodItem}
