@@ -20,7 +20,7 @@ const navigationSlice = createSlice({           // возвращает объе
       initialState:  {                          // инициализируем state
             activeGender: 'women',              //  в любом компоненте можно обратиться к свойству activeGender
             status: '',                         // статус запроса на сервер
-            categories: {},                      // нач значени(получим от сервера и в categories запишем)
+            categories: {},                      // нач значени(получим от сервера  { "men": { title: , banner: , list: [{title: , slug: }] },  "women": { title: , banner: , list: [] },  "kids": { title: , banner: , list: [] } } и в categories запишем,)
             genderList: [],                      // нач значени(получим от сервера и в genderList запишем)
             error: null,
       },

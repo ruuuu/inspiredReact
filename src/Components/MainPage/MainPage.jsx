@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchGender, fetchCategory  } from '../../features/goodsSlice.js';
 import { Banner } from '../Banner/Banner.jsx';
-
+import { useSelector } from 'react-redux';
 
 
 import { setActiveGender } from '../../features/navigationSlice.js';
@@ -18,8 +18,12 @@ export const MainPage = () => {
 
       const dispatch = useDispatch();
 
-     
+      const { categories, activeGender } =  useSelector(state => state.navigation);        // state.navigation  вернет объект  { activeGender, status, error, genderList, categories }, детсрутррируем и получпем своства  categories, activeGender
+
+      const genderData = categories[activeGender];                     //   { title:  , banner: , list: [{title: пижамы, slug: pijams}, {}] }
     
+
+
       useEffect(() => {
             dispatch(setActiveGender(gender));
       }, [gender, dispatch]);                         // при смене gender, вызовется переданная функция
@@ -42,9 +46,9 @@ export const MainPage = () => {
       return (
             <>
                   <div>
-                        <Banner />
+                        <Banner data={genderData?.banner}  />                             {/* если у genderData есть свойство banner */}
                   </div>
-                  <Goods category={category} />               {/* Goods принмиает параметр category, поэтому добавчлпм props category */} 
+                  <Goods categoryData={genderData?.list.find(categoryItem => categoryItem.slug === category)}  />               {/* Goods принмиает параметр categoryData, поэтому добавчлпм props categoryData */} 
             </> 
       );
 

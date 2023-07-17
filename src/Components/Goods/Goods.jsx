@@ -6,16 +6,14 @@ import style from '../Goods/Goods.module.scss'
 
 
 
-export const Goods = ({ category }) => {
-      console.log('category in Goods ', category);
+export const Goods = ({ categoryData }) => {                      // categoryData  = { title: ,  slug: }
+      console.log('categoryData  in Goods ', categoryData );
       
       // получаем goodsList  [{}, {}, {}] с сервера:
       const { goodsList } = useSelector(state => state.goods);   // goods это name в goodsSlice, state.goods вернет  объект { goodsList, status, error }, и звлечем из него  goodsList пр помощи деструтруизауии  
-      const { categories, activeGender } =  useSelector(state => state.navigation);        // state.navigation  вернет объект  { activeGender, status, error, genderList, categories }, детсрутррируем и получпем своства  categories, activeGender
       
-      // если есть результа метода find(), то берем у него свойство title:
-      const title = category ? categories[activeGender]?.list.find(categoryItem => categoryItem.slug === category).title : 'Новинки';
-
+      
+      const title = categoryData?.title ?? 'Новинки';             // ?? значит что, если categoryData.title  есть, то будет оно, если нет то Новинки
 
       return (
             <section className={style.goods}>
