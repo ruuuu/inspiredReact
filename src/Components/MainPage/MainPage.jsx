@@ -18,15 +18,24 @@ export const MainPage = () => {
 
       const dispatch = useDispatch();
 
-      const { categories, activeGender } =  useSelector(state => state.navigation);        // state.navigation  вернет объект  { activeGender, status, error, genderList, categories }, детсрутррируем и получпем своства  categories, activeGender
+      const { categories, activeGender, genderList } =  useSelector(state => state.navigation);        // state.navigation  вернет объект  { activeGender, status, error, genderList, categories }, детсрутррируем и получпем своства  categories, activeGender
 
-      const genderData = categories[activeGender];                     //   { title:  , banner: , list: [{title: пижамы, slug: pijams}, {}] }
+      const genderData = categories[activeGender];                                        //   { title:  , banner: , list: [{title: пижамы, slug: pijams}, {}] }
+    
+      const categoryData = genderData?.list.find(categoryItem => categoryItem.slug === category);           // { title: пижамы, slug: pijams }
     
 
-
       useEffect(() => {
-            dispatch(setActiveGender(gender));
-      }, [gender, dispatch]);                         // при смене gender, вызовется переданная функция
+            if(gender){
+                  dispatch(setActiveGender(gender));
+            }
+            else if(genderList[0]){
+                  dispatch(setActiveGender(genderList[0]));
+                  dispatch(fetchGender(genderList[0]));              // отправится запрос на сервер
+            }
+           
+      }, [gender, genderList, dispatch]);                         // при кликании(смене) gender, genderList  вызовется переданная функция
+
 
 
       useEffect(() => {
@@ -35,20 +44,20 @@ export const MainPage = () => {
                   return;                                                     // далее код не выполнится
             }
             if(gender){
-                  dispatch(fetchGender(gender));                  // отправится язапрос на сервер
+                  dispatch(fetchGender(gender));                  // отправится запрос на сервер
                   return;
             }
            
-      }, [gender, category, dispatch]);                        // при смене gender, category , вызовется переданная функция
+      }, [gender, category, dispatch]);                        // при кликании(смене) gender, category , вызовется переданная функция
 
 
 
       return (
             <>
                   <div>
-                        <Banner data={genderData?.banner}  />                             {/* если у genderData есть свойство banner */}
+                        <Banner data={genderData?.banner} category={categoryData?.slug} />                             {/* если у genderData есть свойство banner */}
                   </div>
-                  <Goods categoryData={genderData?.list.find(categoryItem => categoryItem.slug === category)}  />               {/* Goods принмиает параметр categoryData, поэтому добавчлпм props categoryData */} 
+                  <Goods categoryData={categoryData}  />               {/* Goods принмиает параметр categoryData, поэтому добавчлпм props categoryData ={title: пижамы, slug: pijams} */} 
             </> 
       );
 

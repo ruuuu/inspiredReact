@@ -2,6 +2,8 @@ import cn from 'classnames';
 import { Container } from "../../Layout/Container/Container.jsx";
 import style from './Top.module.scss';   // style={}
 import logo from '../../../assets/logo.svg';
+import { NavLink } from 'react-router-dom';
+
 
 
 // компонент
@@ -11,9 +13,9 @@ export const Top = () => (
             <Container className={style.container}>   
                <a className={cn(style.link, style.phone)} href="tel:894565434387">8 9456 54 34 387</a>
 
-                <a className="style.logo" href="">
+                <NavLink className="style.logo" to="/">
                   <img src={logo} alt="Логотип inspired"/>
-                </a>
+                </NavLink>
 
                 <div className={style.navigation}>
                   <ul className={style.navList}>

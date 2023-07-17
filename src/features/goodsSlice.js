@@ -9,10 +9,11 @@ export const fetchGender = createAsyncThunk(            // для запроса
       async (gender) => {
             //console.log('`${GOODS_URL}?gender=${gender}`', `${GOODS_URL}?gender=${gender}`);
             const url = new URL(GOODS_URL);
-            url.searchParams.append('gender', gender);   // добавляем в урл search параметры  ?gender=gender
+            url.searchParams.append('gender', gender);   // добавляем в урл search параметры  ?gender=women/men/kids
             
             const response = await fetch(url);               //  отправляем GET запрос 
             const data = await response.json();
+            console.log('data in fetchGender ', data)       // [ {id, title, decription, }, {}, {}, {} ]
             return data; 
       }
 );
@@ -26,12 +27,12 @@ export const fetchCategory = createAsyncThunk(            // для запрос
             const url = new URL(GOODS_URL);
 
             for(const key in param){
-                  url.searchParams.append(key, param[key]);   // https://localhost:5173/?gender=men&category=pants
+                  url.searchParams.append(key, param[key]);   // https://localhost:5173/?gender=men&category=socks
             }
 
             const response = await fetch(url);              // отправляем GET запрос
             const data = await response.json();
-            return data; 
+            return data;                                    // [{}, {}, {}]
       }
 );
 

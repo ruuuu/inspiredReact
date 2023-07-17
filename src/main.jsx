@@ -9,9 +9,9 @@ import store from './store.js';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  //<React.StrictMode>
     <Provider store={store}> 
       <App />
     </Provider>
-  </React.StrictMode>,
+  //</React.StrictMode>, StrictMode вывводит ошибки в консоль. нужен чтобы один итеже запросы в нетворке  не отправлялись по несколько раз
 )
