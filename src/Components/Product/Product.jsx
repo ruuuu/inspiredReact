@@ -5,7 +5,7 @@ import { ReactComponent as Like } from '../../assets/heart.svg';  // карти�
 import { ColorList } from '../ColorList/ColorLIst.jsx';
 
 
-// вернет верстку картчоки товара для страницы товара
+// вернет верстку картчоку товара для страницы товара
 
 //                                 props
 export const Product = ({ id, pic, title, price, colors, description }) => {  // props-   {id, title, category, size, name, description}

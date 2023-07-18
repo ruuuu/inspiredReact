@@ -8,7 +8,7 @@ import { Color } from './Color/Color.jsx';
 
 //компонент
 export const ColorList = ({ colors }) => {                                    // colors - массив цветов
-
+      
 
       const { colorList } = useSelector(state => state.color);                // ответ от сервера  [ {code: , id: , title: }, {} ]  запишем в colorList
       

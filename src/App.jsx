@@ -8,18 +8,21 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchNavigation } from "./features/navigationSlice.js";
 import { fetchColors } from "./features/colorSlice.js";
-//import { fetchGoods } from "./features/goodsSlice.js";
+import { ProductPage } from "./Components/ProductPage/ProductPage.jsx";
 
 
 
-// при переходе path='/' отобразится компонент  MainPage, gender='men' это props:
+
+// при переходе path='/' отобразится компонент  MainPage
+// gender='men' это props:
 
 const router = createBrowserRouter(
      createRoutesFromElements(
           <Route path='/' element={<Root />}>     
                <Route  index element={<MainPage />} />
                {/* <Route  path='women' element={<MainPage gender='women' />} /> */}
-               <Route  path='catalog/:gender/:category?' element={<MainPage/>} />
+               <Route  path='catalog/:gender/:category?' element={<MainPage />} />
+               <Route  path='product/:id?' element={<ProductPage />} />
                
                {/* <Route  path='men' element={<MainPage gender='men' />} />
                <Route  path='women/:category' element={<MainPage gender='women' />} />
