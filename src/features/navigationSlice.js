@@ -10,13 +10,13 @@ export const fetchNavigation = createAsyncThunk(            // для запро
             const data = await response.json();  // асинхронный метод response.json();
             return data;  
       }
-)
+);
 
 
 
 // создаем редьюсер
 const navigationSlice = createSlice({           // возвращает объект, у него есть свойство reducer и actions   
-      name: 'navigation',                       // задаем названеи редьсюеру
+      name: 'navigation',                       // придумываем  названеи редьсюеру
       initialState:  {                          // инициализируем state
             activeGender: 'women',              //  в любом компоненте можно обратиться к свойству activeGender
             status: '',                         // статус запроса на сервер
@@ -40,7 +40,7 @@ const navigationSlice = createSlice({           // возвращает объе
                         state.categories = action.payload;                    // в action.payload приходит ответ от сервера запиештимся в categories
                         state.genderList = Object.keys(action.payload);       // ['men', 'women']
                   })  
-                  .addCase(fetchNavigation.rejected, (state) => {
+                  .addCase(fetchNavigation.rejected, (state, action) => {
                         state.status = 'failed',                              // от сервера не получили ответ
                         state.error = action.error.message;
                   })

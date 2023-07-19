@@ -41,7 +41,7 @@ export const App = () => {
 
      useEffect(() => {
           dispatch(fetchNavigation());  // отправка запроса на сервер(полуенеи категорий)
-          dispatch(fetchColors());  // отправка запроса на сервер(полуение цветв)
+          dispatch(fetchColors());     // отправка запроса на сервер(полуение цветв)
           
      }, [dispatch]);
 

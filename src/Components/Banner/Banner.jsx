@@ -10,6 +10,7 @@ export const Banner = ({ data, category }) => {
            //  data = { description:  , id: , bg:{} }
 
            const [ bgURL, setBgURL ] = useState('');  // useState создает стейт
+           //console.log('useState() in  Banner ', useState(''))
 
 
            useEffect(() => {

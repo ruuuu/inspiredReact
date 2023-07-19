@@ -42,7 +42,7 @@ export const fetchCategory = createAsyncThunk(            // для запрос
 
 
 export const goodsSlice = createSlice({           // возвращает объект, у него есть свойство reducer и actions   
-      name: 'goods',                            // задаем названеи редьсюеру
+      name: 'goods',                            // придумываем названеи редьсюеру
       initialState:  {                          // инициализируем state
             status: '',                         // статус запроса на сервер
             goodsList: [],                      // нач значени, ответ от  сервера запишем в перменную goodsList
