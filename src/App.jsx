@@ -13,7 +13,7 @@ import { ProductPage } from "./Components/ProductPage/ProductPage.jsx";
 
 
 
-// при переходе path='/' отобразится компонент  MainPage
+// при переходе path='product/:id?' отобразится компонент  ProductPage
 // gender='men' это props:
 
 const router = createBrowserRouter(

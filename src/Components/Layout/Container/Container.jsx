@@ -12,6 +12,6 @@ export const Container = ({ className, children }) => (  // props = { className,
    <div className={cn(style.container, className)}> 
       {children} 
    </div> 
-      /* children - встроенное свойство  */
+      /* children - встроенное пропс  */
    
 );

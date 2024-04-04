@@ -6,7 +6,8 @@ import style from './Main.module.scss';
 //  компонент, возвращает верстку
 export const Main = ({ children }) => (         // children внутренность main 
      
-      <div className={style.main}>  
-            {children} 
+      <div className={style.main}> 
+      {/* children-втсроенный пропс  */}
+            {children}   
       </div> 
 );

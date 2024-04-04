@@ -8,7 +8,7 @@ import { ColorList } from '../ColorList/ColorLIst.jsx';
 // вернет верстку картчоку товара для страницы товара
 
 //                                 props
-export const Product = ({ id, pic, title, price, colors, description }) => {  // props-   {id, title, category, size, name, description}
+export const Product = ({ id, pic, title, price, colors, description }) => {  // предали props-ов   {id, title, category, size, name, description}, деструткрируя
       //console.log('props ', props);
 
       return (
@@ -19,13 +19,13 @@ export const Product = ({ id, pic, title, price, colors, description }) => {  //
                   </NavLink>
 
                   <div className={style.row}>
-                        <p className={style.price}>руб {price}</p>
+                        <p className={style.price}> руб {price} </p>
                         <button className={style.favorite}>
                               <Like />
                         </button>
                   </div>
 
-                  <ColorList colors={colors} />   {/* ColorList принмиает параметр colors, поэтому добавчлпм props colors */} 
+                  <ColorList colors={colors} />   {/* комопнент ColorList принмиает параметр colors, поэтому добавчлпм props colors */} 
             </article>
       )
        

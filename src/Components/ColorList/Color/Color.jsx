@@ -3,7 +3,7 @@ import cn from "classnames";
 import { useEffect, useRef } from 'react';
 
 
-// компонент
+// компонент, деструткрировали props:
 export const Color = ({ color, check }) => {                /* color = {code: , id: , title: }, передаваемые color, check это атрибуты(props) у компонента Color */ 
 
       const colorRef = useRef(null);  // useRef хук, нач знаеие null. colorRef нужен чтобы заадть стили элементу

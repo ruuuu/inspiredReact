@@ -10,7 +10,7 @@ import { Outlet } from "react-router-dom";
 // компонент, возврашает верстку: 
 export const Root = () => (
       <>
-            <Header/>
+            <Header />
             <Main>
                   <Outlet />
             </Main>

@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 
 
-// компонент
+// компонент, в него передаем 4 пропса:
 export const ColorLabel = ({ color, check, selectedColor, handleColorChange }) => {                /* color = {code: , id: , title: }, передаваемые color, check это атрибуты(props) у компонента Color */ 
 
       const colorRef = useRef(null);                                                // useRef хук, нач знаеие null. colorRef нужен чтобы заадть стили элементу
@@ -20,7 +20,6 @@ export const ColorLabel = ({ color, check, selectedColor, handleColorChange }) =
       return (
             <label className={style.color} ref={colorRef}> 
                   <input className={style.input} type='radio' name='color' value={color?.title}/>
-            </label>           
-           
+            </label> 
       );
 };
