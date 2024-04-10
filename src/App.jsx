@@ -12,17 +12,14 @@ import { ProductPage } from "./Components/ProductPage/ProductPage.jsx";
 
 
 
-
-// при переходе path='product/:id?' отобразится компонент  ProductPage
-// gender='men' это props:
-
+// роутинг:
 const router = createBrowserRouter(
      createRoutesFromElements(
           <Route path='/' element={<Root />}>     
                <Route  index element={<MainPage />} />
-               {/* <Route  path='women' element={<MainPage gender='women' />} /> */}
-               <Route  path='catalog/:gender/:category?' element={<MainPage />} />
-               <Route  path='product/:id?' element={<ProductPage />} />
+               {/* <Route  path='women' element={<MainPage gender='women' />} /> */}           {/* gender='men' это props */}
+               <Route  path='catalog/:gender/:category?' element={<MainPage />} />            
+               <Route  path='product/:id?' element={<ProductPage />} />                    {/*  при переходе path='product/:id?' отобразится компонент  ProductPage */}
                
                {/* <Route  path='men' element={<MainPage gender='men' />} />
                <Route  path='women/:category' element={<MainPage gender='women' />} />

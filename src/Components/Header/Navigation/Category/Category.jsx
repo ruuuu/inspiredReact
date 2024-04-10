@@ -4,7 +4,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
 
-//  атрибуты className, to - это props-ы
+//  атрибуты className и  to - это props-ы
 // компонент          {list}
 export const Category = () => {
       // console.log('list in Category  ', list );
@@ -12,7 +12,7 @@ export const Category = () => {
       // const gender = location.pathname.split("/")[1] || "women";        // men/women
       //console.log('gender ', gender);            
       
-      // получаем categories и activeGender:
+      // извлекаем(диструктуризация) categories и activeGender:
       const { activeGender, categories } = useSelector(state => state.navigation);                    // state.navigation вернет объект { status, categories, error, activeGender, genderList }, из него получим свйосва activeGender, categories с помщью деструтуриазации 
      
 

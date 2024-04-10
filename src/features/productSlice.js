@@ -20,7 +20,7 @@ export const fetchProduct = createAsyncThunk(            // для запрос�
 export const productSlice = createSlice({
       name:  'product',
       initialState: {
-            product:  {},           // ответ с серевра запишем сюда {id, title, description, cateogry, price, colors, pic, gender, top }
+            product:  {},           // запишем сюда ответ с серевра  {id, title, description, cateogry, price, colors, pic, gender, top }
             status: '',  
             error: null,
       },
@@ -29,10 +29,9 @@ export const productSlice = createSlice({
                   .addCase(fetchProduct.pending, (state) => {               // отправка запроса на сервер
                         state.status = 'loading';
                   })  
-                  .addCase(fetchProduct.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchNavigation
+                  .addCase(fetchProduct.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchProduct
                         state.status = 'success';                             // ответо сервера успешно получен
-                        state.product = action.payload;                    // в action.payload приходит ответ от сервера
-                            
+                        state.product = action.payload;                    // в action.payload запишется ответ от сервера     
                   })  
                   .addCase(fetchProduct.rejected, (state, action) => {
                         state.status = 'failed',                              // от сервера не получили ответ

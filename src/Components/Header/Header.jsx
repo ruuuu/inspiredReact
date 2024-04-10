@@ -9,10 +9,23 @@ export const Header = () => (    // с помщью деструткризаци
       
       <header className={style.header}>
             <Top />
-            <Navigation />  
+            <Navigation />    {/*  <Navigation list={list}/>  передаем {list} в виде props-а(объект) в компонент Navigation   */}
       </header>
       
 );
 
+// либо так (с return):
+// export const Header = () => {
 
-// <Navigation list={list}/>  передаем {list} ввиде props-а(объект) в компонент Navigation 
+//       return (
+//             <header className={style.header}>
+//                   <Top />
+//                   <Navigation />  
+//             </header>
+//       )
+
+// }    // с помщью деструткризации достаем объект list
+      
+      
+
+

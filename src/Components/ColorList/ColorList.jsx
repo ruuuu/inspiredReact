@@ -10,17 +10,17 @@ import { ColorLabel } from './ColorLabel/ColorLabel.jsx';
 export const ColorList = ({ colors, selectedColor, handleColorChange  }) => {                                    // colors - массив цветов [1, 2, 5]
       
 
-      const { colorList } = useSelector(state => state.color);                // ответ от сервера  [ {code: , id: , title: }, {} ]  запишем в colorList
+      const { colorList } = useSelector(state => state.color);                // ответ от сервера colorList = [ {code: , id: , title: }, {} ]  запишем в colorList
       
 
-      return handleColorChange ? (                           // если есть handleColorChange     
+      return handleColorChange ? (                           // если есть handleColorChange, то вернем ону верстку, иначе др верстка    
             <div className={style.colorList}>
                   {colors?.map((id, i) => {
                         const color = colorList.find(color => color.id === id);                             // вернет {code: , id: , title: }
-                        return <ColorLabel  key={id} color={color?.code} check={!i} selectedColor={selectedColor}  handleColorChange={handleColorChange } />   // ColorLabel принимает {selectedColor, handleColorChange}, поэтому передаем их как props-ы 
+                        return <ColorLabel  key={id}  color={color?.code}  check={!i}  selectedColor={selectedColor}   handleColorChange={handleColorChange } />   // ColorLabel принимает {selectedColor, handleColorChange}, поэтому передаем их как props-ы 
                   })}
             </div>
-            ) : (                                 
+            ) : (                              
             <ul className={style.colorList}>
                  {colors.map((id, i) => {             // colors = [ {code: , id: , title: }, {} ]
                         const color = colorList.find(color => color.id === id);                             // вернет {code: , id: , title: }

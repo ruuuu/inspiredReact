@@ -14,7 +14,7 @@ import { ColorList } from '../ColorList/ColorList.jsx';
 export const ProductPage = () => {
 
       const dispatch = useDispatch();
-      const { id }  = useParams();                    // id товара берем из адресной строки
+      const { id }  = useParams();                    // id товара берем из адресной строки(урла /product/:id)
       const { product } = useSelector(state => {       // state.product вернет объект { status:success, product: {}, error: null  }, из него получим свйосвj product с помщью деструтуриазации 
             console.log('state.product ', state.product)
             return state.product;
@@ -32,7 +32,7 @@ export const ProductPage = () => {
 
       useEffect(() => {
             dispatch(fetchProduct(id))  // запрос на сервер
-      }, [id, dispatch]);                 // при  смене id  будет вызываться переданная функция
+      }, [id, dispatch]);                 // каждый раз когда меняется id,  будет вызываться переданная функция
 
 
       return (
