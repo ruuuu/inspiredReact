@@ -4,7 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
 export const fetchProduct = createAsyncThunk(            // для запроса на сервер
-      "product/fetchProduct",                   // имя задали, имя здолжно быть таким же что и  productSlice.name, fetchProduct-имя редьюсера
+      "product/fetchProduct",                   // имя задали, имя здолжно быть таким же что и  productSlice.name, fetchProduct-имя редьюсера(придумали сами)
       async (id) => {                           // id получаемого товара
             const response = await fetch(`${GOODS_URL}/${id}`); //  /api/goods/{id}
             const data = await response.json();  

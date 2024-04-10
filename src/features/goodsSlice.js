@@ -5,7 +5,7 @@ import { GOODS_URL } from "../const.js";
 
 
 export const fetchGender = createAsyncThunk(            // для запроса на сервер
-      'goods/fetchGender ',                              //имя здолжно быть таким же что и goodsSlice.name (fetchGender  - имя для  редьюсера)
+      'goods/fetchGender ',                              //имя здолжно быть таким же что и goodsSlice.name (fetchGender  - имя для  редьюсера(придумали сами))
       async (gender) => {
             //console.log('`${GOODS_URL}?gender=${gender}`', `${GOODS_URL}?gender=${gender}`);
             const url = new URL(GOODS_URL);
@@ -42,7 +42,7 @@ export const fetchCategory = createAsyncThunk(            // для запрос
 
 
 export const goodsSlice = createSlice({           // возвращает объект, у него есть свойство reducer и actions   
-      name: 'goods',                            // придумываем названеи редьсюеру
+      name: 'goods',                            // придумываем названеи state
       initialState:  {                          // инициализируем state
             status: '',                         // статус запроса на сервер
             goodsList: [],                      // нач значени, ответ от  сервера запишем в перменную goodsList

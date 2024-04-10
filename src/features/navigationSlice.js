@@ -4,11 +4,11 @@ import { CATEGORY_URL } from '../const.js';
 
 
 export const fetchNavigation = createAsyncThunk(            // для запроса на сервер
-      "navigation/fetchNavigation",  //имя задали, имя здолжно быть таким же что и  navigationSlice.name, fetchNavigation-имя редьюсера
+      "navigation/fetchNavigation",  //имя задали, имя здолжно быть таким же что и  navigationSlice.name, fetchNavigation-имя редьюсера(придумали сами)
       async () => {
             const response = await fetch(CATEGORY_URL);
             const data = await response.json();  // асинхронный метод response.json();
-            return data;  
+            return data;  // либо протсо пишем return await
       }
 );
 
@@ -16,7 +16,7 @@ export const fetchNavigation = createAsyncThunk(            // для запро
 
 // создаем редьюсер
 const navigationSlice = createSlice({           // возвращает объект, у него есть свойство reducer и actions   
-      name: 'navigation',                       // придумываем  названеи редьсюеру
+      name: 'navigation',                       // придумываем  названеи state
       initialState:  {                          // инициализируем state
             activeGender: 'women',              //  в любом компоненте можно обратиться к свойству activeGender
             status: '',                         // статус запроса/ответа на сервер

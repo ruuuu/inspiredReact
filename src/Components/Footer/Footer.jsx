@@ -10,21 +10,20 @@ import { useSelector } from 'react-redux';
 //                { list }
 export const Footer = () => {
 
-      const { genderList, categories } = useSelector(state => state.navigation);  
+      const { genderList, categories } = useSelector(state => state.navigation);   // { activeGender, status, categories, genderList, error }
       console.log('genderList ', genderList);    // [ women, men, kids ]
-      console.log('categories ', categories);    // { kids: {title: 'Детское', banner: {…}, list: Array(2)}, men: {title: 'Мужское', banner: {…}, list: Array(4)}, women: {title: 'Женское', banner: {…}, list: Array(6)} }
+      console.log('categories ', categories);    // { kids: {title: 'Детское', banner: {…}, list: Array(2)},   men: {title: 'Мужское', banner: {…}, list: Array(4)},   women: {title: 'Женское', banner: {…}, list: Array(6)} }
       
 
 
       return ( 
-
             <footer>  
                   <Container>  
                         <div className={style.container}>
                               <div className={style.category}>
-                                    <h2 className={cn(style.title, style.categoryTitle)}>Каталог</h2>
+                                    <h2 className={cn(style.title, style.categoryTitle)}> Каталог </h2>
                                     <ul className={style.categoryList}>
-                                          { genderList.map((gender) => (
+                                          { genderList.map((gender) => (  // вернет верстку
                                                 <li key={gender}>
                                                       <h3 className={style.categorySubtitle}>
                                                             <NavLink className={style.link} to={`/catalog/${gender}`}> {categories[gender].title} </NavLink>

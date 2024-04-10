@@ -4,7 +4,7 @@ import { COLORS_URL } from '../const.js';
 
 
 export const fetchColors = createAsyncThunk(            // для запроса на сервер
-      "color/fetchColors",  //имя здолжно быть таким же что и colorSlice.name (fetchColors - имя для  редьюсера)
+      "color/fetchColors",  //имя здолжно быть таким же что и colorSlice.name (fetchColors - имя для  редьюсера (придумали сами))
       async () => {
             const response = await fetch(COLORS_URL);
             const data = await response.json();
@@ -15,7 +15,7 @@ export const fetchColors = createAsyncThunk(            // для запроса
 
 // создаем редьюсер
 const colorSlice = createSlice({           // возвращает объект, у него есть свойство reducer и actions   
-      name: 'color',                       // задаем названеи редьсюеру
+      name: 'color',                       // задаем названеи state
       initialState:  {                          // инициализируем state
             status: '',                         // статус запроса на сервер
             colorList: [],                      // нач значени, ответ от  сервера  запишем в пеерменную colorList
@@ -26,7 +26,7 @@ const colorSlice = createSlice({           // возвращает объект,
                   .addCase(fetchColors.pending, (state) => {               // отправка запроса на сервер
                         state.status = 'loading';
                   })  
-                  .addCase(fetchColors.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchNavigation
+                  .addCase(fetchColors.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchColor
                         state.status = 'success';
                         state.colorList = action.payload;       // ответ от сервера [{id, title, code}, {}]
                   })  
@@ -36,9 +36,6 @@ const colorSlice = createSlice({           // возвращает объект,
                   })
       }                  
 });
-
-
-
 
 
 

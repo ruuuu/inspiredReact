@@ -6,7 +6,7 @@ import productReducer from './features/productSlice.js';
 
 
 export const rootReducer = combineReducers({  
-      navigation: navigationReducer,
+      navigation: navigationReducer,  // свойсво navigation придумали сами
       color: colorReducer,
       goods: goodsReducer,                      // название  goods берем из goodSlice.name
       product: productReducer,
