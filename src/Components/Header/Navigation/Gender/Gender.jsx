@@ -11,8 +11,9 @@ import { useSelector } from 'react-redux';
 
 
 
-// компонент, js код оборачиваем в {}
+// компонент, js-код в верстке оборачиваем в {}
 export const Gender = () => {
+      
       const { activeGender, genderList, categories } = useSelector(state => state.navigation)  //state.navigation вернет объект, из него изклекаем свойства activeGender, genderList, categories.  Доcтаем из initialState, для этого исползуем useSelector
 
 
@@ -21,14 +22,14 @@ export const Gender = () => {
       // const gender = location.pathname.split('/')[1] || 'women';            // split() в строке ищет '/', получаем  массив строк ['', 'men', 'bathrobes']
 
       return (                                     // возвращает верстку
-                  <ul className={style.gender}>
-                        {genderList.map((gender) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
-                                    <li className={style.item} key={gender}>             
-                                          <NavLink className={ ({ isActive }) => cn(style.link, (isActive || gender === activeGender) && style.linkActive) } to={`/catalog/${gender}`}> {categories[gender].title} </NavLink>   
-                                    </li>
-                              )
-                        )}
-                  </ul>
+            <ul className={style.gender}>
+                  { genderList.map((gender) => (          // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
+                        <li className={style.item} key={gender}>             
+                              <NavLink className={ ({ isActive }) => cn(style.link, (isActive || gender === activeGender) && style.linkActive) }  to={`/catalog/${gender}`}> {categories[gender].title} </NavLink>   
+                        </li>
+                     )
+                  ) }
+            </ul>
             )
 };
 

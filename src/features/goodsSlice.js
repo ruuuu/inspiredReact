@@ -9,11 +9,11 @@ export const fetchGender = createAsyncThunk(            // для запроса
       async (gender) => {
             //console.log('`${GOODS_URL}?gender=${gender}`', `${GOODS_URL}?gender=${gender}`);
             const url = new URL(GOODS_URL);
-            url.searchParams.append('gender', gender);   // добавляем в урл search параметры  ?gender=women/men/kids
+            url.searchParams.append('gender', gender);   // добавляем в урл search параметры  ?gender=women либо men либо kids
             
             const response = await fetch(url);               //  отправляем GET запрос 
-            const data = await response.json();
-            console.log('data in fetchGender ', data)       // [ {id, title, decription, }, {}, {}, {} ]
+            const data = await response.json();             // json()- асинхрнный метод
+            //console.log('data in fetchGender ', data)       // [ {id, title, decription, }, {}, {}, {} ]
             return data; 
       }
 );
@@ -53,10 +53,10 @@ export const goodsSlice = createSlice({           // возвращает объ
       },
       extraReducers: (builder) => {
             builder
-                  .addCase(fetchGender.pending, (state) => {               // отправка запроса на сервер, если сервер пока в статусе pending
+                  .addCase(fetchGender.pending, (state) => {               // отправка запроса на сервер, если сервер пока в статусе pending(ожидаем ответ)
                         state.status = 'loading';
                   })  
-                  .addCase(fetchGender.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchNavigation, сервер в статсе success
+                  .addCase(fetchGender.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchNavigation, сервер в статсе success(получен ответ)
                         state.status = 'success';
                         state.goodsList = action.payload;                 // ответ от сервера находится  в  action.payload, получим  массив товаров  [{}, {}, {}, {}]
                   })  
@@ -84,4 +84,4 @@ export const goodsSlice = createSlice({           // возвращает объ
 
 
 
-export default goodsSlice.reducer;
+export default goodsSlice.reducer;  
