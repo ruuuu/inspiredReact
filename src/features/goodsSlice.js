@@ -4,8 +4,8 @@ import { GOODS_URL } from "../const.js";
 
 
 
-export const fetchGender = createAsyncThunk(            // для запроса на сервер
-      'goods/fetchGender',                              //имя здолжно быть таким же что и goodsSlice.name (fetchGender  - имя для  редьюсера(придумали сами))
+export const fetchGoods = createAsyncThunk(            // для запроса на сервер
+      'goods/fetchGoods',                              //имя здолжно быть таким же что и goodsSlice.name (fetchGender  - имя для  редьюсера(придумали сами))
       async (gender) => {
             //console.log('`${GOODS_URL}?gender=${gender}`', `${GOODS_URL}?gender=${gender}`);
             const url = new URL(GOODS_URL);
@@ -53,14 +53,14 @@ export const goodsSlice = createSlice({           // возвращает объ
       },
       extraReducers: (builder) => {
             builder
-                  .addCase(fetchGender.pending, (state) => {               // отправка запроса на сервер, если сервер пока в статусе pending(ожидаем ответ)
+                  .addCase(fetchGoods.pending, (state) => {               // отправка запроса на сервер, если сервер пока в статусе pending(ожидаем ответ)
                         state.status = 'loading';
                   })  
-                  .addCase(fetchGender.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchNavigation, сервер в статсе success(получен ответ)
+                  .addCase(fetchGoods.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchNavigation, сервер в статсе success(получен ответ)
                         state.status = 'success';
                         state.goodsList = action.payload;                 // ответ от сервера находится  в  action.payload, получим  массив товаров  [{}, {}, {}, {}]
                   })  
-                  .addCase(fetchGender.rejected, (state, action) => {
+                  .addCase(fetchGoods.rejected, (state, action) => {
                         state.status = 'failed',
                         state.error = action.error.message;
                   })

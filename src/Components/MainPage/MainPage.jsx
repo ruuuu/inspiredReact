@@ -18,7 +18,7 @@ export const MainPage = () => {
 
       const dispatch = useDispatch();
 
-      const { categories, activeGender, genderList } =  useSelector(state => state.navigation);        // state.navigation  вернет объект  { activeGender, status, error, genderList, categories }, детсрутррируем и получпем только нужные своства  categories, activeGender
+      const { categories, activeGender, genderList } = useSelector(state => state.navigation);        // state.navigation  вернет объект  { activeGender, status, error, genderList, categories }, детсрутррируем и получпем только нужные своства  categories, activeGender
 
       const genderData = categories[activeGender];                                        //   { title,  banner, list: [{title: пижамы, slug: pijams}, {}] }
     
@@ -34,7 +34,7 @@ export const MainPage = () => {
                   dispatch(fetchGender(genderList[0]));              // отправится запрос на сервер
             }
            
-      }, [gender, genderList, dispatch]);                         // при кликании(смене) gender, genderList  вызовется переданная функция
+      }, [gender, genderList, dispatch]);                         // при кликании(смене) gender, genderList=[women, men, kids]  вызовется переданная функция
 
 
 

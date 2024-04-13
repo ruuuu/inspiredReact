@@ -18,7 +18,7 @@ export const Category = () => {
             <ul className={style.category}>
                 {/* list: [{'Пижамы', 'pijams'}, {'Халаты', 'wrobe'}] */}
                 { categories[activeGender]?.list.map((item) => (                                   // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to; className может приимать фукнию. Объект от reactRouter прилетае и у него есть свойство isActive(ссылка активная), дестурктрировали его
-                        <li key={item.slug}>             
+                        <li key={item.slug}>                                     {/* если  isActive есть, то добавится style.linkActive */}
                               <NavLink  className={({ isActive }) => cn(style.link, isActive && style.linkActive)}  to={`/catalog/${activeGender}/${item.slug}`}> {item.title} </NavLink>                   {/* с NavLink станица не будет перезагружаться */}
                         </li>
                      )
