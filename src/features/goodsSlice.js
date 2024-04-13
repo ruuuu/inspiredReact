@@ -5,7 +5,7 @@ import { GOODS_URL } from "../const.js";
 
 
 export const fetchGender = createAsyncThunk(            // для запроса на сервер
-      'goods/fetchGender ',                              //имя здолжно быть таким же что и goodsSlice.name (fetchGender  - имя для  редьюсера(придумали сами))
+      'goods/fetchGender',                              //имя здолжно быть таким же что и goodsSlice.name (fetchGender  - имя для  редьюсера(придумали сами))
       async (gender) => {
             //console.log('`${GOODS_URL}?gender=${gender}`', `${GOODS_URL}?gender=${gender}`);
             const url = new URL(GOODS_URL);
@@ -32,7 +32,7 @@ export const fetchCategory = createAsyncThunk(            // для запрос
 
             const response = await fetch(url);              // отправляем GET запрос
             const data = await response.json();
-            return data;                                    // [{}, {}, {}]
+            return data;                                    //  { goods: [{}, {}, {}], pages: 5, page: 1, totalCount: 36 }
       }
 );
 

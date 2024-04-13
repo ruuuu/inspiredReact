@@ -4,12 +4,12 @@ import style from './Header.module.scss';   // style={}
 
 
 // компонент, возвращатет верстку
-//                  {list} 
+//                 {list}             
 export const Header = () => (    // с помщью деструткризации достаем объект list
       
       <header className={style.header}>
             <Top />
-            <Navigation />    {/*  <Navigation list={list}/>  передаем {list} в виде props-а(объект) в компонент Navigation   */}
+            <Navigation />   
       </header>
       
 );

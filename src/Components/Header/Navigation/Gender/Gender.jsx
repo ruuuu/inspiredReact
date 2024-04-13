@@ -24,7 +24,7 @@ export const Gender = () => {
       return (                                     // возвращает верстку
             <ul className={style.gender}>
                   { genderList.map((gender) => (          // возвращает верстку, у каждого элемента спсика долен быть key. NavLink -встроенный компнент в react-dom, вместо href используем to, className может приимать фукнию. Дестурктрировали встроенное свойоство isActive(ссылка активная)
-                        <li className={style.item} key={gender}>             
+                        <li className={style.item}  key={gender}>             
                               <NavLink className={ ({ isActive }) => cn(style.link, (isActive || gender === activeGender) && style.linkActive) }  to={`/catalog/${gender}`}> {categories[gender].title} </NavLink>   
                         </li>
                      )

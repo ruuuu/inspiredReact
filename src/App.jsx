@@ -1,5 +1,3 @@
-import { Header } from "./Components/Header/Header.jsx";
-import { Footer } from "./Components/Footer/Footer.jsx";
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { Root } from "./routes/Root.jsx";
 import { MainPage } from "./Components/MainPage/MainPage.jsx";
@@ -12,15 +10,14 @@ import { ProductPage } from "./Components/ProductPage/ProductPage.jsx";
 
 
 
-// роутинг:
+// роутинг: npm i react-router-dom -s:
 const router = createBrowserRouter(
      createRoutesFromElements(
           <Route path='/' element={<Root />}>     
                <Route  index element={<MainPage />} />
-               {/* <Route  path='women' element={<MainPage gender='women' />} /> */}           {/* gender='men' это props */}
                <Route  path='catalog/:gender/:category?' element={<MainPage />} />            
                <Route  path='product/:id?' element={<ProductPage />} />                    {/*  при переходе path='product/:id?' отобразится компонент  ProductPage */}
-               
+                {/* <Route  path='women' element={<MainPage gender='women' />} /> */}           {/* gender='men' это props */}
                {/* <Route  path='men' element={<MainPage gender='men' />} />
                <Route  path='women/:category' element={<MainPage gender='women' />} />
                <Route  path='men/:category' element={<MainPage gender='men' />} />

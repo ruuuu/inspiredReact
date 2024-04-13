@@ -37,7 +37,7 @@ const navigationSlice = createSlice({           // возвращает объе
                   })  
                   .addCase(fetchNavigation.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchNavigation, fetchNavigation.fulfilled - action
                         state.status = 'success';                             // ответо сервера успешно получен
-                        state.categories = action.payload;                    // в action.payload приходит ответ от сервера запиештимся в categories
+                        state.categories = action.payload;                    // в action.payload приходит ответ от сервера запиештимся в categories: {men: {title, list: [{title, slug},{}]},  women: {title, list: [{},{}]},  kids: {title, list: [{},{}]}}
                         state.genderList = Object.keys(action.payload);       // извлекает из объекта клбчи и записывает их в массив['men', 'women', 'kids']
                   })  
                   .addCase(fetchNavigation.rejected, (state, action) => {     // fetchNavigation.rejected - action

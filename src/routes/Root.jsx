@@ -12,7 +12,7 @@ export const Root = () => (
       <>
             <Header />
             <Main>
-                  <Outlet />
+                  <Outlet />              {/* компонент Root-а */}
             </Main>
             <Footer />
       </>

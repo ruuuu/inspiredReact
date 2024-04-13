@@ -1,10 +1,10 @@
-import { Goods } from '../Goods/Goods.jsx'
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchGender, fetchCategory  } from '../../features/goodsSlice.js';
-import { Banner } from '../Banner/Banner.jsx';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { Goods } from '../Goods/Goods.jsx';
+import { Banner } from '../Banner/Banner.jsx';
+import { fetchGender, fetchCategory  } from '../../features/goodsSlice.js';
 import { setActiveGender } from '../../features/navigationSlice.js';
 
 
