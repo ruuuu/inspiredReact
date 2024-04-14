@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 
 
 // компонент, в него передаем 4 пропса:
-export const ColorLabel = ({ color, check, selectedColor, handleColorChange }) => {                /* color = {code: , id: , title: }, передаваемые color, check selectedColor, handleColorChange это атрибуты(props) у компонента Color */ 
+export const ColorLabel = ({ color, check, selectedColor, handleColorChange }) => {                /*  передаваемые colorCode, check selectedColor, handleColorChange это атрибуты(props) у компонента ColorLabel */ 
 
       const colorRef = useRef(null);                                                // useRef хук, нач знаеие null. colorRef нужен чтобы заадть стили элементу
       //element.style.setProperty("--data-color", color);                              // в js(для реакт  useRef испльзуется) задаем дата-атрибут data-color, и задаем ему значение color 

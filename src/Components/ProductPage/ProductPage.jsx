@@ -1,11 +1,12 @@
 import style from './ProductPage.module.scss';
+import cn from 'classnames';
 import { Container } from '../Layout/Container/Container.jsx';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchProduct } from '../../features/productSlice.js';
 import { API_URL } from '../../const.js';
-import cn from 'classnames';
+
 import { ColorList } from '../ColorList/ColorList.jsx';
 
 
@@ -41,15 +42,15 @@ export const ProductPage = () => {
                         <img className={style.image} src={`${API_URL}/${product.pic}`} alt={`${product.title} ${product.description}`} />
 
                         <form className={style.content}>
-                              <h2 className={style.title}>{product.title}</h2>
-                              <p className={style.price}>{product.price} РУБ</p>
+                              <h2 className={style.title}> {product.title} </h2>
+                              <p className={style.price}> {product.price} РУБ </p>
                               <div className={style.vendorCode}>
-                                    <span className={style.subtitle}>Aртикул</span>
-                                    <span className={style.id}>{product.id}</span>
+                                    <span className={style.subtitle}> Aртикул </span>
+                                    <span className={style.id}> {product.id} </span>
                               </div>
 
                               <div className={style.color}>
-                                    <span className={cn(style.subtitle, style.colorTitle)}>Цвет</span>
+                                    <span className={cn(style.subtitle, style.colorTitle)}> Цвет </span>
                                     <ColorList colors={product.colors}  selectedColor={selectedColor} handleColorChange={handleColorChange} />                      {/* перелаем props colors */}
                               </div>
                         </form>

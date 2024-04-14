@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Goods } from '../Goods/Goods.jsx';
 import { Banner } from '../Banner/Banner.jsx';
-import { fetchGender, fetchCategory  } from '../../features/goodsSlice.js';
+import { fetchGoods, fetchCategory  } from '../../features/goodsSlice.js';
 import { setActiveGender } from '../../features/navigationSlice.js';
 
 
@@ -31,7 +31,7 @@ export const MainPage = () => {
             }
             else if(genderList[0]){
                   dispatch(setActiveGender(genderList[0]));
-                  dispatch(fetchGender(genderList[0]));              // отправится запрос на сервер
+                  dispatch(fetchGoods(genderList[0]));              // отправится запрос на сервер
             }
            
       }, [gender, genderList, dispatch]);                         // при кликании(смене) gender, genderList=[women, men, kids]  вызовется переданная функция
@@ -44,7 +44,7 @@ export const MainPage = () => {
                   return;                                                     // далее код не выполнится
             }
             if(gender){
-                  dispatch(fetchGender(gender));                  // отправится запрос на сервер
+                  dispatch(fetchGoods(gender));                  // отправится запрос на сервер
                   return;
             }
            

@@ -2,13 +2,13 @@ import style from './Product.module.scss';
 import { API_URL } from '../../const.js';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as Like } from '../../assets/heart.svg';  // картинку импортировали как компанент, назвали его Like
-import { ColorList } from '../ColorList/ColorLIst.jsx';
+import { ColorList } from '../ColorList/ColorList.jsx';
 
 
-// вернет верстку картчоку товара для страницы товара
+// вернет верстку картчоку товара (на странице спсика товаров)
 
 //                                 props
-export const Product = ({ id, pic, title, price, colors, description }) => {  // предали props-ов   {id, title, category, size, name, description}, деструткрируя
+export const Product = ({ id, pic, title, price, colors, description }) => {  // передали props-ов   {id, title, category, size, name, description}, деструткрируя
       //console.log('props ', props);
 
       return (
@@ -21,11 +21,11 @@ export const Product = ({ id, pic, title, price, colors, description }) => {  //
                   <div className={style.row}>
                         <p className={style.price}> руб {price} </p>
                         <button className={style.favorite}>
-                              <Like />
+                              <Like />  {/*  npm i vite-plugin-svgr --save-dev для svg-иконки */}
                         </button>
                   </div>
 
-                  <ColorList colors={colors} />   {/* комопнент ColorList принмиает параметр colors, поэтому добавчлпм props colors */} 
+                  <ColorList colors={colors} />             {/* комопнент ColorList принмиает параметр colors, поэтому добавчлпм props colors */} 
             </article>
       )
        

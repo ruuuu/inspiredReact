@@ -18,7 +18,7 @@ const colorSlice = createSlice({           // возвращает объект,
       name: 'color',                       // задаем названеи state
       initialState:  {                          // инициализируем state
             status: '',                         // статус запроса на сервер
-            colorList: [],                      // нач значени, ответ от  сервера  запишем в пеерменную colorList
+            colorList: [],                      // нач значени, ответ от  сервера  [ { id: , title: , code: }, {} ]  запишем в пеерменную colorList
             error: null,
       },
       extraReducers: (builder) => {
@@ -28,7 +28,7 @@ const colorSlice = createSlice({           // возвращает объект,
                   })  
                   .addCase(fetchColors.fulfilled, (state, action) => {    // вытаскиваем action - async() из fetchColor
                         state.status = 'success';
-                        state.colorList = action.payload;       // ответ от сервера [{id, title, code}, {}]
+                        state.colorList = action.payload;       // ответ от сервера [{id: 1, title: black, code: #000000}, {}]
                   })  
                   .addCase(fetchColors.rejected, (state, action) => {
                         state.status = 'failed',
