@@ -23,7 +23,7 @@ export const ColorList = ({ colors, selectedColor, handleColorChange }) => {    
             ) : (                              
                   <ul className={style.colorList}>
                         { colors.map((colorsElem, i) => {             // colors = [ 1, 2, 5 ] - цвета в карточке товара
-                              const color = colorList.find(color => color.id === colorsElem);                             // вернет {id: , title: , code: }
+                              const color = colorList.find(colorItem => colorItem.id === colorsElem);                             // вернет {id: , title: , code: }
                               return <Color  key={colorsElem}  colorCode={color?.code}  check={!i} />             // возвращаем компонент Color(<li>), props = {colorCode, check}.   color?.code - проверяем есть ли свойстов code у объекта  color .
                               // Color принимает {color, check}, поэтому передаем их как props-ы color и check
                         })}

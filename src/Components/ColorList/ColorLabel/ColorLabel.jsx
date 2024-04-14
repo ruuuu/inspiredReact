@@ -12,7 +12,7 @@ export const ColorLabel = ({ color, check, selectedColor, handleColorChange }) =
       
       // если изменения происходят напрямую у элемента, то испольуем useEffect: 
       useEffect(() => {                          
-            colorRef.current.style.setProperty("--data-color", color);   
+            colorRef.current.style.setProperty("--data-color", color);  //  scss background-color: var(--data-color);  то есть  значение хранится  в переменной --data-color 
       }, [ color ]);                                 // при смене color, заупустится предаваемая функция(коллбэк)             
 
 

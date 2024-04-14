@@ -7,7 +7,7 @@
 }
     
 
-.color:after {
+.color:after { //кружочек
       content: "";
       position: absolute;
       top: 50%;
@@ -17,7 +17,7 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: var(--data-color);  // значение хранится  в пемрернной --data-color
+      background-color: var(--data-color);  // значение хранится  в переменной --data-color-кастомное свойсвто
       border: 0.4px solid #8a8a8a;
 }
    
