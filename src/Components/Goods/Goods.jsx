@@ -6,7 +6,7 @@ import style from '../Goods/Goods.module.scss'
 
 
 
-export const Goods = ({ categoryData }) => {                      // categoryData  = { title,  slug }
+export const Goods = ({ categoryData }) => {                      // categoryData  = { title: пижамы, slug: pijams }
       console.log('categoryData  in Goods ', categoryData );
       
       // получаем goodsList  [{}, {}, {}] с сервера:
@@ -29,6 +29,6 @@ export const Goods = ({ categoryData }) => {                      // categoryDat
                         </ul>
                   </Container>
             </section> 
-      )     
+      )    
 };
 

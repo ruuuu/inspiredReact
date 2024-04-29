@@ -5,22 +5,23 @@
       border-radius: 50%;
       display: block;
 }
-    
 
-.color:after { //кружочек
+
+.color:after {
+      //кружочек (псевдоэлемент)
       content: "";
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%); // для сафари
       transform: translate(-50%, -50%);
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: var(--data-color);  // значение хранится  в переменной --data-color-кастомное свойсвто
+      background-color: var(--data-color); // значение хранится  в переменной --data-color-кастомное свойсвто
       border: 0.4px solid #8a8a8a;
 }
-   
+
 
 .colorCheck {
       border: 0.4px solid #8a8a8a;

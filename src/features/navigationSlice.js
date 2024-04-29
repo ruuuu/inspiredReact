@@ -27,7 +27,7 @@ const navigationSlice = createSlice({           // возвращает объе
       reducers: {
             setActiveGender: (state, action) => {           // setActiveGender - это action
                  // console.log('action.payload in setActiveGender', action.payload)
-                  state.activeGender = action.payload;            // в action будут параметры котрые передадим при dispatch(setActiveGender)
+                  state.activeGender = action.payload;            // в action будут параметры(gender) котрые передадим при dispatch(setActiveGender(gender))
             }
       },
       extraReducers: (builder) => {

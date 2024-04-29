@@ -2,6 +2,22 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { GOODS_URL } from "../const.js";
 
 
+export const fetchCategory = createAsyncThunk(            // для запроса на сервер
+      'goods/fetchCategory',                              //имя здолжно быть таким же что и goodsSlice.name (fetchCategory- имя для  редьюсера)
+       async (param) => {                                // товары получаем в зависимости от param = { gender: , category: }
+           
+            const url = new URL(GOODS_URL);
+
+            for(const key in param){
+                  url.searchParams.append(key, param[key]);   // добвляем к урлу search-параметры gender и category  https://localhost:5173/?gender=men&category=socks
+            }
+
+            const response = await fetch(url);              // отправляем GET запрос
+            const data = await response.json();
+            return data;                                    //  { goods: [{}, {}, {}], pages: 5, page: 1, totalCount: 36 }
+      }
+);
+
 
 
 export const fetchGoods = createAsyncThunk(            // для запроса на сервер
@@ -9,30 +25,12 @@ export const fetchGoods = createAsyncThunk(            // для запроса 
       async (gender) => {
             //console.log('`${GOODS_URL}?gender=${gender}`', `${GOODS_URL}?gender=${gender}`);
             const url = new URL(GOODS_URL);
-            url.searchParams.append('gender', gender);   // добавляем в урл search параметры  ?gender=women либо men либо kids
+            url.searchParams.append('gender', gender);   // добавляем в урл search-параметры,  ?gender=women либо men либо kids
             
             const response = await fetch(url);               //  отправляем GET запрос 
             const data = await response.json();             // json()- асинхрнный метод
             //console.log('data in fetchGender ', data)       // [ {id, title, decription, }, {}, {}, {} ]
             return data; 
-      }
-);
-
-
-
-export const fetchCategory = createAsyncThunk(            // для запроса на сервер
-      'goods/fetchCategory',                              //имя здолжно быть таким же что и goodsSlice.name (fetchCategory- имя для  редьюсера)
-       async (param) => {                                // param = { gender: , category: }
-           
-            const url = new URL(GOODS_URL);
-
-            for(const key in param){
-                  url.searchParams.append(key, param[key]);   // https://localhost:5173/?gender=men&category=socks
-            }
-
-            const response = await fetch(url);              // отправляем GET запрос
-            const data = await response.json();
-            return data;                                    //  { goods: [{}, {}, {}], pages: 5, page: 1, totalCount: 36 }
       }
 );
 

@@ -12,7 +12,7 @@ export const Footer = () => {
 
       const { genderList, categories } = useSelector(state => state.navigation);   // { activeGender, status, categories, genderList, error }
       console.log('genderList ', genderList);    // [ women, men, kids ]
-      console.log('categories ', categories);    // { kids: {title: 'Детское', banner: {…}, list: Array(2)},   men: {title: 'Мужское', banner: {…}, list: Array(4)},   women: {title: 'Женское', banner: {…}, list: Array(6)} }
+      console.log('categories ', categories);    // { kids: {title: 'Детское', banner: {…}, list: ['Девочки', 'Мальчики']},   men: {title: 'Мужское', banner: {…}, list: ['Белье', 'Носки', 'Халаты', 'Термобелье']},   women: {title: 'Женское', banner: {…}, list: ['Бюстики', 'Носки', 'Трусы', 'Халаты', 'Пижамы']} }
       
 
 

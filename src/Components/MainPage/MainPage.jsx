@@ -14,13 +14,13 @@ import { setActiveGender } from '../../features/navigationSlice.js';
 //                { gender = 'women' }                      // по умолчнию  gender = 'women'
 export const MainPage = () => {                     
       
-      const { category, gender } = useParams();   // хук useParams, вернет объект, его детсрутуририруем { category, gender }, category - так названо поле на сервере
+      const { gender, category } = useParams();   // хук useParams нужен чтобы вернуть параметры, котые есть в пути /:gender/:category. Вернет объект, его детсрутуририруем { category, gender }
 
       const dispatch = useDispatch();
 
       const { categories, activeGender, genderList } = useSelector(state => state.navigation);        // state.navigation  вернет объект  { activeGender, status, error, genderList, categories }, детсрутррируем и получпем только нужные своства  categories, activeGender
 
-      const genderData = categories[activeGender];                                        //   { title,  banner, list: [{title: пижамы, slug: pijams}, {}] }
+      const genderData = categories[activeGender];                                        //   { title, banner, list: [ {title: пижамы, slug: pijams}, {title: носки, slug: socks} ] }
     
       const categoryData = genderData?.list.find(categoryItem => categoryItem.slug === category);           // { title: пижамы, slug: pijams }
     
@@ -34,12 +34,12 @@ export const MainPage = () => {
                   dispatch(fetchGoods(genderList[0]));              // отправится запрос на сервер
             }
            
-      }, [gender, genderList, dispatch]);                         // при кликании(смене) gender, genderList=[women, men, kids]  вызовется переданная функция
+      }, [gender, genderList, dispatch]);                         // при смене(кликании) gender, genderList=[women, men, kids]  вызовется переданная функция
 
 
 
       useEffect(() => {
-            if(gender && category){                   // category так  названо поле на сервере
+            if(gender && category){                  
                   dispatch(fetchCategory({ gender, category }));              // отправится запрос на сервер
                   return;                                                     // далее код не выполнится
             }
